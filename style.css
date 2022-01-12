@@ -1,5 +1,17 @@
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.u-visuallyHidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
 
 html {
@@ -13,4 +25,79 @@ h1, h2, h3 {
 
 h1 {
     font-size: 5.6rem;
+}
+
+header {
+    padding: 2rem;
+    background-color: #49BCF1;
+}
+
+header .Contain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Contain {
+    max-width: 144rem;
+    margin: 0 auto;
+}
+
+.MainNavigation ul {
+    display: none;
+    list-style-type: none;
+    align-items: center;
+}
+
+.MainNavigation ul a {
+    display: block;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.8rem;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.MainNavigation ul a:hover {
+    text-decoration: underline;
+}
+
+.MainNavigation ul a:focus-visible {
+    outline: 1px solid #24303E;
+}
+
+.MainNavigation .Contact {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #24303E;
+    background-color: #fff;
+    border-radius: 2.8rem;
+    padding: 2rem 3rem;
+    transition: color 0.3s ease-out, background-color 0.3s ease-out;
+}
+
+.MainNavigation .Contact:focus,
+.MainNavigation .Contact:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    border: 0;
+    background: transparent;
+    padding: 1rem;
+}
+
+
+@media (min-width: 40em) {
+    button {
+        display: none;
+    }
+
+    .MainNavigation ul {
+        display: flex;
+    }
 }
