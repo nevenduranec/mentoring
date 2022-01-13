@@ -4,6 +4,11 @@
     padding: 0;
 }
 
+img, svg {
+    display: block;
+    max-width: 100%;
+}
+
 .u-visuallyHidden {
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
@@ -24,18 +29,22 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 5.6rem;
+    font-size: 3rem;
 }
 
 header {
     padding: 2rem;
-    background-color: #49BCF1;
+    background-color: #3ebfff;
 }
 
 header .Contain {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+header svg path {
+    fill: #262626;
 }
 
 .Contain {
@@ -53,7 +62,7 @@ header .Contain {
     display: block;
     padding: 0.8rem 1.5rem;
     font-size: 1.8rem;
-    color: #fff;
+    color: #262626;
     text-decoration: none;
 }
 
@@ -91,6 +100,37 @@ button {
     padding: 1rem;
 }
 
+.Hero {
+    display: flex;
+    color: #262626;
+    text-transform: uppercase;
+    word-break: break-all;
+    background-color: #3ebfff;
+}
+
+.Hero .Contain {
+    padding: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+
+    background-image: url(assets/mobile/image-header.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: cover;
+    aspect-ratio: 375 / 438;
+}
+
+.Hero svg {
+    margin-top: 2rem;
+}
+
+.Hero svg path {
+    stroke: #262626;
+}
 
 @media (min-width: 40em) {
     button {
@@ -99,5 +139,24 @@ button {
 
     .MainNavigation ul {
         display: flex;
+    }
+
+    .Hero .Contain {
+        background-image: url(assets/desktop/image-header.jpg);
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        background-size: cover;
+        aspect-ratio: 1440 / 600;
+        justify-content: flex-start;
+    }
+
+    .Hero h1 {
+        margin: 2rem 0 5rem 0;
+    }
+}
+
+@media (min-width: 50em) {
+    .Hero h1 {
+        font-size: 5.6rem;
     }
 }
