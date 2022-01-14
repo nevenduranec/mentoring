@@ -43,7 +43,8 @@ h2 {
 }
 
 p {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
+    color: #808397;
 }
 
 header {
@@ -150,21 +151,84 @@ button {
 
     .Card img {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .Card > div {
-        aspect-ratio: 1 / 0.8;
         display: grid;
         text-align: center;
         align-content: center;
-        padding: 2rem 0;
+        padding: 5rem 0;
         max-width: 70%;
     }
 
     .Card > div p {
         margin: 2rem 0;
+        font-size: 1.6rem;
     }
 
+
+.Works {
+    display: grid;
+    max-width: 144rem;
+    margin: 0 auto;
+}
+
+    .Works .Card {
+        max-width: 100%;
+        margin: initial;
+        grid-template-columns: auto;
+    }
+
+    .Works .Card > * {
+        grid-area: 1 / 1;
+    }
+
+    .Works .Card:nth-child(2) > picture {
+        order: initial;
+    }
+
+    .Works .Card > div {
+        align-self: end;
+        text-align: center;
+        padding: 0 0 5rem 0;
+    }
+
+    .Works .Card > div p {
+        margin: 3rem 0 0 0;
+    }
+
+    .Works h2 {
+        font-size: clamp(1rem, 2rem + 1vw, 6rem);
+    }
+
+    .Works .Card:first-child {
+        color: #24554A;
+    }
+
+    .Works .Card:nth-child(2) {
+        color: #052C3B;
+    }
+
+    .Works .Card:nth-child(2) p {
+        color: #19536C;
+    }
+
+    .Works p {
+        color: inherit;
+    }
+
+
+@media (min-width: 30em) {
+    .Works {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .Works .Card > div {
+        padding-top: 100%;
+    }
+}
 
 @media (min-width: 40em) {
     button {
@@ -199,5 +263,12 @@ button {
     .Card > div {
         aspect-ratio: initial;
         text-align: left;
+    }
+}
+
+@media (min-width: 70em) {
+    .Works .Card > div {
+        max-width: 50%;
+        padding-top: 0;
     }
 }
