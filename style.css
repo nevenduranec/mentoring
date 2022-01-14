@@ -145,6 +145,7 @@ button {
     max-width: 144rem;
     margin: 0 auto;
     display: grid;
+    justify-items: center;
 }
 
     .Card img {
@@ -156,11 +157,7 @@ button {
         display: grid;
         text-align: center;
         align-content: center;
-        justify-items: center;
-        padding: clamp(2rem, 3rem + 1vw, 8rem);
-    }
-
-    .Card > div > div {
+        padding: 2rem 0;
         max-width: 70%;
     }
 
@@ -197,10 +194,6 @@ button {
 
     .Card:nth-child(2) > picture {
         order: 2;
-    }
-
-    .Card:nth-child(2) > div {
-        justify-self: end;
     }
 
     .Card > div {
