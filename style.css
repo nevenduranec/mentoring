@@ -7,6 +7,11 @@
 img, svg {
     display: block;
     max-width: 100%;
+    height: auto;
+}
+
+picture {
+    display: block;
 }
 
 .u-visuallyHidden {
@@ -32,20 +37,29 @@ h1 {
     font-size: 3rem;
 }
 
+h2 {
+    font-size: clamp(2rem, 2.5rem + 1vw, 5rem);
+    line-height: 1;
+}
+
+p {
+    font-size: 1.3rem;
+}
+
 header {
     padding: 2rem;
-    background-color: #3ebfff;
+    background-color: #49bcf2;
 }
 
-header .Contain {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    header .Contain {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-header svg path {
-    fill: #262626;
-}
+    header svg path {
+        fill: #262626;
+    }
 
 .Contain {
     max-width: 144rem;
@@ -58,40 +72,40 @@ header svg path {
     align-items: center;
 }
 
-.MainNavigation ul a {
-    display: block;
-    padding: 0.8rem 1.5rem;
-    font-size: 1.8rem;
-    color: #262626;
-    text-decoration: none;
-}
+    .MainNavigation ul a {
+        display: block;
+        padding: 0.8rem 1.5rem;
+        font-size: 1.8rem;
+        color: #262626;
+        text-decoration: none;
+    }
 
 
-.MainNavigation ul a:hover {
-    text-decoration: underline;
-}
+    .MainNavigation ul a:hover {
+        text-decoration: underline;
+    }
 
-.MainNavigation ul a:focus-visible {
-    outline: 1px solid #24303E;
-}
+    .MainNavigation ul a:focus-visible {
+        outline: 1px solid #24303E;
+    }
 
-.MainNavigation .Contact {
-    font-family: 'Fraunces', serif;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    color: #24303E;
-    background-color: #fff;
-    border-radius: 2.8rem;
-    padding: 2rem 3rem;
-    transition: color 0.3s ease-out, background-color 0.3s ease-out;
-}
+    .MainNavigation .Contact {
+        font-family: 'Fraunces', serif;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        color: #24303E;
+        background-color: #fff;
+        border-radius: 2.8rem;
+        padding: 2rem 3rem;
+        transition: color 0.3s ease-out, background-color 0.3s ease-out;
+    }
 
-.MainNavigation .Contact:focus,
-.MainNavigation .Contact:hover {
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-}
+    .MainNavigation .Contact:focus,
+    .MainNavigation .Contact:hover {
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.5);
+        text-decoration: none;
+    }
 
 button {
     font: inherit;
@@ -101,62 +115,96 @@ button {
 }
 
 .Hero {
-    display: flex;
     color: #262626;
+    background-color: #49bcf2;
     text-transform: uppercase;
-    word-break: break-all;
-    background-color: #3ebfff;
-}
-
-.Hero .Contain {
-    padding: 2rem;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-
-    background-image: url(assets/mobile/image-header.jpg);
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    background-size: cover;
-    aspect-ratio: 375 / 438;
+    display: grid;
+    justify-items: center;
 }
 
-.Hero svg {
-    margin-top: 2rem;
+    .Hero > div { 
+        display: grid;
+        align-content: center;
+        justify-items: center;
+    }
+
+    .Hero > * {
+        grid-area: 1 / 1;
+    }
+
+    .Hero svg {
+        margin-top: 2rem;
+    }
+
+    .Hero svg path {
+        stroke: #262626;
+    }
+
+.Card {
+    max-width: 144rem;
+    margin: 0 auto;
+    display: grid;
 }
 
-.Hero svg path {
-    stroke: #262626;
-}
+    .Card img {
+        width: 100%;
+    }
+
+    .Card > div {
+        aspect-ratio: 1 / 0.8;
+        display: grid;
+        text-align: center;
+        align-content: center;
+        justify-items: center;
+        padding: clamp(2rem, 3rem + 1vw, 8rem);
+    }
+
+    .Card > div > div {
+        max-width: 70%;
+    }
+
+    .Card > div p {
+        margin: 2rem 0;
+    }
+
 
 @media (min-width: 40em) {
     button {
         display: none;
     }
 
+    header,
+    .Hero {
+        background-color: #3ebfff;
+    }
+
     .MainNavigation ul {
         display: flex;
     }
 
-    .Hero .Contain {
-        background-image: url(assets/desktop/image-header.jpg);
-        background-repeat: no-repeat;
-        background-position: bottom center;
-        background-size: cover;
-        aspect-ratio: 1440 / 600;
-        justify-content: flex-start;
+    .Hero img {
+        width: 144rem;
     }
 
-    .Hero h1 {
-        margin: 2rem 0 5rem 0;
-    }
-}
-
-@media (min-width: 50em) {
     .Hero h1 {
         font-size: 5.6rem;
+    }
+
+    .Card {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .Card:nth-child(2) > picture {
+        order: 2;
+    }
+
+    .Card:nth-child(2) > div {
+        justify-self: end;
+    }
+
+    .Card > div {
+        aspect-ratio: initial;
+        text-align: left;
     }
 }
