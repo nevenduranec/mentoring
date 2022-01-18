@@ -408,7 +408,16 @@ footer {
         }
 
     .Pictures {
+        justify-content: center;
         flex-wrap: nowrap;
+    }
+
+    .Pictures img {
+        max-width: 36rem;
+    }
+
+    .Pictures picture {
+        flex-basis: auto;
     }
 
 }
