@@ -4,7 +4,7 @@
     padding: 0;
 }
 
-img, svg {
+img {
     display: block;
     max-width: 100%;
     height: auto;
@@ -44,7 +44,7 @@ h2 {
 
 p {
     font-size: 1.8rem;
-    color: #808397;
+    line-height: 1.6;
 }
 
 header {
@@ -159,15 +159,50 @@ button {
         display: grid;
         text-align: center;
         align-content: center;
+        justify-items: center;
         padding: 5rem 0;
         max-width: 70%;
     }
 
     .Card > div p {
         margin: 2rem 0;
-        font-size: 1.6rem;
+        font-size: 1.8rem;
+        line-height: 1.5;
     }
 
+    .Card a {
+        font-family: 'Fraunces', serif;
+        text-decoration: none;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        color: #24303E;
+        position: relative;
+    }
+
+    .Card a::after {
+        content: '';
+        display: block;
+        height: 10px;
+        background-color: #FAD400;
+        opacity: 0.2;
+        width: 120%;
+        border-radius: 1rem;
+        margin-top: -0.8rem;
+        transition: opacity 0.3s ease;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        z-index: -1;
+    }
+
+    .Card a:hover::after,
+    .Card a:focus-visible::after {
+        opacity: 1;
+    }
+
+    .Card:nth-child(3) a::after {
+        background-color: #FE7766;
+    }
 
 .Works {
     display: grid;
@@ -219,6 +254,110 @@ button {
         color: inherit;
     }
 
+.Testimonials {
+    text-align: center;
+    margin: 10rem 0;
+}
+
+    .Testimonials h2 {
+        margin: 5rem 0;
+    }
+
+    .Testimonials .Contain {
+        display: grid;
+        grid-auto-flow: row;
+    }
+
+    .Testimonials figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 3rem;
+    }
+
+    .Testimonials blockquote {
+        flex-grow: 1;
+        margin: 3rem 0;
+    }
+
+    .Testimonials img {
+        border-radius: 50%;
+    }
+
+    .Testimonials cite {
+        display: block;
+        font-family: 'Barlow', sans-serif;
+        font-size: 1rem;
+        font-style: normal;
+        color: #A7AAAD;
+    }
+
+    .Testimonials figcaption {
+        font-size: 1.8rem;
+        font-family: 'Fraunces', serif;
+        line-height: 2;
+    }
+
+
+.Pictures {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .Pictures picture {
+        flex-basis: 50%;
+    }
+
+    .Pictures img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+footer {
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #90D4C6;
+    color: #2C7566;
+}
+    footer nav:first-of-type {
+        margin: 5rem 0;
+    }
+
+    footer nav ul {
+        display: flex;
+        list-style-type: none;
+    }
+
+    footer li svg {
+        flex-grow: 1;
+    }
+
+    footer a {
+        display: block;
+        color: #2C7566;
+        padding: 0 2rem;
+        font-size: 1.8rem;
+        text-decoration: none;
+        transition: color 0.3s ease-out;
+    }
+
+    footer path {
+        transition: fill 0.3s ease-out;
+    }
+
+    footer a:focus-visible,
+    footer a:hover {
+        color: #fff;
+    }
+
+    footer a:focus-visible path,
+    footer a:hover path {
+        fill: #fff;
+    }
 
 @media (min-width: 30em) {
     .Works {
@@ -227,6 +366,7 @@ button {
 
     .Works .Card > div {
         padding-top: 100%;
+        justify-items: center;
     }
 }
 
@@ -256,14 +396,35 @@ button {
         grid-template-columns: 1fr 1fr;
     }
 
-    .Card:nth-child(2) > picture {
-        order: 2;
+        .Card:nth-child(2) > picture {
+            order: 2;
+        }
+
+        .Card > div {
+            aspect-ratio: initial;
+            text-align: left;
+            justify-items: start;
+        }
+
+    .Pictures {
+        flex-wrap: nowrap;
     }
 
-    .Card > div {
-        aspect-ratio: initial;
-        text-align: left;
+}
+
+@media (min-width: 50em) {
+    .Testimonials {
+        margin: 15rem 0;
     }
+
+        .Testimonials .Contain {
+            grid-auto-flow: column;
+            grid-auto-columns: minmax(0, 1fr);
+        }
+
+        .Testimonials figure {
+            margin: 3rem 5rem;
+        }
 }
 
 @media (min-width: 70em) {
