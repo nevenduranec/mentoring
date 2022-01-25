@@ -1,4 +1,6 @@
-* {
+*,
+*::after,
+*::before {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -69,6 +71,29 @@ header {
         fill: #262626;
     }
 
+    header::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        box-shadow:
+            0px 1.1px 1.4px rgba(0, 0, 0, 0.037),
+            0px 2.7px 3.5px rgba(0, 0, 0, 0.053),
+            0px 5px 6.5px rgba(0, 0, 0, 0.065),
+            0px 8.9px 11.6px rgba(0, 0, 0, 0.077),
+            0px 16.7px 21.7px rgba(0, 0, 0, 0.093),
+            0px 40px 52px rgba(0, 0, 0, 0.13);
+        transition: opacity 0.1s ease-out;
+      }
+
+    header.is-heading-stuck::after {
+        opacity: 1;
+    }
+
 .Contain {
     max-width: 144rem;
     margin: 0 auto;
@@ -84,7 +109,7 @@ header {
     list-style-type: none;
     align-items: center;
     position: absolute;
-    top: 100%;
+    top: 49%;
     right: 1rem;
     background-color: #fff;
     flex-direction: column;
@@ -92,6 +117,13 @@ header {
     transform: translate(0, 5rem);
     padding: 2rem;
     transition: opacity 0.5s ease;
+    box-shadow:
+        0px 1.1px 1.4px rgba(0, 0, 0, 0.037),
+        0px 2.7px 3.5px rgba(0, 0, 0, 0.053),
+        0px 5px 6.5px rgba(0, 0, 0, 0.065),
+        0px 8.9px 11.6px rgba(0, 0, 0, 0.077),
+        0px 16.7px 21.7px rgba(0, 0, 0, 0.093),
+        0px 40px 52px rgba(0, 0, 0, 0.13);
 }
 
     .MainNavigation ul.is-visible {
@@ -413,40 +445,14 @@ footer {
 }
 
 @media (min-width: 40em) {
-    button {
-        display: none;
+
+    .MainNavigation ul {
+        min-width: auto;
     }
 
     header,
     .Hero {
         background-color: #3ebfff;
-    }
-
-    .MainNavigation ul {
-        all: revert;
-        display: flex;
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        align-items: center;
-    }
-
-    .MainNavigation ul::before {
-        display: none;
-    }
-
-    .MainNavigation .Contact {
-        background-color: #fff;
-        margin-left: 2rem;
-    }
-
-    .MainNavigation .Contact:focus,
-    .MainNavigation .Contact:hover {
-        background-color: #000;
-    }
-
-    .Hero {
-        padding-top: 5rem;
     }
 
         .Hero img {
@@ -487,6 +493,7 @@ footer {
 }
 
 @media (min-width: 50em) {
+
     .Testimonials {
         margin: 15rem 0;
     }
@@ -502,6 +509,19 @@ footer {
 }
 
 @media (min-width: 70em) {
+
+    header {
+        padding: 3rem;
+    }
+
+    h1 {
+        position: relative;
+        z-index: 10;
+        position: sticky;
+        top: -1px;
+        padding: 1.5rem;
+    }
+
     .Works .Card > div {
         max-width: 50%;
         padding-top: 0;
