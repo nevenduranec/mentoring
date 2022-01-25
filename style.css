@@ -320,10 +320,6 @@ button {
         color: #052C3B;
     }
 
-    .Works .Card:nth-child(2) p {
-        color: #19536C;
-    }
-
     .Works p {
         color: inherit;
     }
@@ -363,7 +359,6 @@ button {
         font-family: 'Barlow', sans-serif;
         font-size: 1rem;
         font-style: normal;
-        color: #A7AAAD;
     }
 
     .Testimonials figcaption {
@@ -412,7 +407,7 @@ footer {
 
     footer a {
         display: block;
-        color: #2C7566;
+        color: #000;
         padding: 0 2rem;
         font-size: 1.8rem;
         text-decoration: none;
